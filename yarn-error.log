@@ -1,0 +1,54 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Bruno Santi\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js
+
+PATH: 
+  C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\Java\jdk-14.0.1\bin;;C:\Program Files (x86)\Microchip\MPLAB C32 Suite\bin;C:\Program Files (x86)\HI-TECH Software\PICC\9.70\bin;%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%SYSTEMROOT%\System32\OpenSSH\;C:\Users\Bruno Santi\.windows-build-tools\python27\;C:\Users\Bruno Santi\AppData\Local\Programs\Python\Python38-32\Scripts\;C:\Users\Bruno Santi\AppData\Local\Programs\Python\Python38-32\;C:\Users\Bruno Santi\AppData\Local\Microsoft\WindowsApps;;C:\Users\Bruno Santi\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Bruno Santi\AppData\Roaming\npm;C:\Program Files\Docker Toolbox;C:\Users\Bruno Santi\AppData\Local\Microsoft\WindowsApps
+
+Yarn version: 
+  1.22.4
+
+Node version: 
+  12.16.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, copyfile 'C:\Users\Bruno Santi\AppData\Local\Yarn\Cache\v6\npm-estraverse-4.3.0-398ad3f3c5a24948be7725e83d11a7de28cdbd1d-integrity\node_modules\estraverse\package.json' -> 'C:\Users\Bruno Santi\Documents\Estudos\udemy\clean-react\node_modules\estraverse\package.json'
+
+npm manifest: 
+  {
+    "name": "clean-react",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "test": "jest "
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+      "@types/jest": "^26.0.14",
+      "@types/node": "^14.11.8",
+      "@typescript-eslint/eslint-plugin": "^4.4.1",
+      "eslint": "^7.9.0",
+      "eslint-config-standard-with-typescript": "^19.0.1",
+      "eslint-plugin-import": "^2.22.0",
+      "eslint-plugin-node": "^11.1.0",
+      "eslint-plugin-promise": "^4.2.1",
+      "eslint-plugin-standard": "^4.0.1",
+      "git-commit-msg-linter": "^3.0.0",
+      "husky": "^4.3.0",
+      "jest": "^26.5.3",
+      "lint-staged": "^10.4.0",
+      "ts-jest": "^26.4.1",
+      "typescript": "^4.0.3"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
