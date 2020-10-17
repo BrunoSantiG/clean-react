@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 
 import { Spinner, LoginHeader, Footer } from '@/presentation/components'
 import Styles from './styles.scss'
+import Input from '@/presentation/components/Input'
 
 type StateProps = {
   isLoading: boolean
@@ -19,8 +20,8 @@ const Login: React.FC = () => {
       <form className={Styles.form} data-testid="form">
         <h2>Login</h2>
         {state.errorMessage && <span className={Styles.error} data-testid="error-msg">{state.errorMessage}</span>}
-        <input type="email" name="email" placeholder="E-mail"/>
-        <input type="password" name="password" placeholder="Senha"/>
+        <Input type="email" name="email" placeholder="Digite seu e-mail" />
+        <Input type="password" name="password" placeholder="Digite sua senha" />
         <button type="submit" disabled>
           {state.isLoading && <Spinner /> }
             Entrar
