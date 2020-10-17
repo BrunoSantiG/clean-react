@@ -11,4 +11,10 @@ describe('Login component', () => {
     const { queryByTestId } = render(<Login/>)
     expect(queryByTestId('spinner')).toBeFalsy()
   })
+
+  test('Button should be disable on mount', () => {
+    const { getByRole } = render(<Login/>)
+    const button = getByRole('button') as HTMLButtonElement
+    expect(button.disabled).toBeTruthy()
+  })
 })
