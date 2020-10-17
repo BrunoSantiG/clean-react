@@ -4,6 +4,7 @@ import Spinner from '@/presentation/components/Spinner'
 
 import Styles from './styles.scss'
 import LoginHeader from '@/presentation/components/LoginHeader'
+import Footer from '@/presentation/components/Footer'
 
 const Login: React.FC = () => {
   return (
@@ -17,7 +18,7 @@ const Login: React.FC = () => {
         <button type="submit"><Spinner/> Entrar</button>
         <span className={Styles.link}>criar conta</span>
       </form>
-      <footer className={Styles.footer}/>
+      <Footer/>
     </div>
   )
 }
