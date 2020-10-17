@@ -17,4 +17,14 @@ describe('Login component', () => {
     const button = getByRole('button') as HTMLButtonElement
     expect(button.disabled).toBeTruthy()
   })
+
+  test('Input should start with inital values', () => {
+    const { getByTestId } = render(<Login/>)
+    const emailStatus = getByTestId('email-status')
+    expect(emailStatus.title).toBe('Campo obrigatório')
+    expect(emailStatus.textContent).toBe('🔴')
+    const passwordStatus = getByTestId('password-status')
+    expect(passwordStatus.title).toBe('Campo obrigatório')
+    expect(passwordStatus.textContent).toBe('🔴')
+  })
 })
