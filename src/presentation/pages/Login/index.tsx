@@ -21,7 +21,7 @@ const Login: React.FC = () => {
         {state.errorMessage && <span className={Styles.error} data-testid="error-msg">{state.errorMessage}</span>}
         <input type="email" name="email" placeholder="E-mail"/>
         <input type="password" name="password" placeholder="Senha"/>
-        <button type="submit">
+        <button type="submit" disabled>
           {state.isLoading && <Spinner /> }
             Entrar
         </button>
