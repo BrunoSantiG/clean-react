@@ -1,19 +1,30 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Spinner, LoginHeader, Footer } from '@/presentation/components'
-
 import Styles from './styles.scss'
 
+type StateProps = {
+  isLoading: boolean
+  errorMessage: string
+}
+
 const Login: React.FC = () => {
+  const [state] = useState<StateProps>({
+    isLoading: false,
+    errorMessage: ''
+  })
   return (
     <div className={Styles.container}>
       <LoginHeader/>
-      <form className={Styles.form}>
+      <form className={Styles.form} data-testid="form">
         <h2>Login</h2>
+        {state.errorMessage && <span className={Styles.error} data-testid="error-msg">{state.errorMessage}</span>}
         <input type="email" name="email" placeholder="E-mail"/>
-        <span className={Styles.error}>Erro</span>
         <input type="password" name="password" placeholder="Senha"/>
-        <button type="submit"><Spinner/> Entrar</button>
+        <button type="submit">
+          {state.isLoading && <Spinner /> }
+            Entrar
+        </button>
         <span className={Styles.link}>criar conta</span>
       </form>
       <Footer/>
