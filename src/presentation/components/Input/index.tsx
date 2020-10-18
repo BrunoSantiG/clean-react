@@ -22,11 +22,10 @@ const Input: React.FC<Props> = ({ error, name, state, ...rest }: Props) => {
       [event.target.name]: event.target.value
     })
   }
-
   return (
     <div className={Styles.inputWrap}>
       <input name={name} data-testid={name} {...rest} readOnly onFocus={enableInput} onChange={handleChange}/>
-      <span title={error} className={Styles.status} data-testid={`${name}-status`}>🔴</span>
+      <span title={error || 'Tudo certo!'} className={Styles.status} data-testid={`${name}-status`}>{error ? '🔴' : '🟢'}</span>
     </div>
   )
 }
