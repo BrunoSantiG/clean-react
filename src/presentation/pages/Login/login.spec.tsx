@@ -1,29 +1,41 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { render, RenderResult } from '@testing-library/react'
 import Login from '.'
+
+type SutTypes = {
+  sut: RenderResult
+}
+
+const makeSut = (): SutTypes => {
+  const sut = render(<Login/>)
+  return {
+    sut
+  }
+}
+
 describe('Login component', () => {
   test('Should not render error message on mount', () => {
-    const { queryByTestId } = render(<Login/>)
-    expect(queryByTestId('error-msg')).toBeFalsy()
+    const { sut } = makeSut()
+    expect(sut.queryByTestId('error-msg')).toBeFalsy()
   })
 
   test('Should not render spinner on mount', () => {
-    const { queryByTestId } = render(<Login/>)
-    expect(queryByTestId('spinner')).toBeFalsy()
+    const { sut } = makeSut()
+    expect(sut.queryByTestId('spinner')).toBeFalsy()
   })
 
   test('Button should be disable on mount', () => {
-    const { getByRole } = render(<Login/>)
-    const button = getByRole('button') as HTMLButtonElement
+    const { sut } = makeSut()
+    const button = sut.getByRole('button') as HTMLButtonElement
     expect(button.disabled).toBeTruthy()
   })
 
   test('Input should start with inital values', () => {
-    const { getByTestId } = render(<Login/>)
-    const emailStatus = getByTestId('email-status')
+    const { sut } = makeSut()
+    const emailStatus = sut.getByTestId('email-status')
     expect(emailStatus.title).toBe('Campo obrigatório')
     expect(emailStatus.textContent).toBe('🔴')
-    const passwordStatus = getByTestId('password-status')
+    const passwordStatus = sut.getByTestId('password-status')
     expect(passwordStatus.title).toBe('Campo obrigatório')
     expect(passwordStatus.textContent).toBe('🔴')
   })
