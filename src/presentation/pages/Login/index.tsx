@@ -42,7 +42,7 @@ const Login: React.FC<Props> = ({ validation }: Props) => {
         {error.message && <span className={Styles.error} data-testid="error-msg">{error.message}</span>}
         <Input type="email" name="email" state={{ state, setState }} placeholder="E-mail" error={error.email}/>
         <Input type="password" name="password" state={{ state, setState }} placeholder="Senha" error={error.password}/>
-        <button type="submit" disabled>
+        <button type="submit" disabled={!!(error.email || error.password)}>
           {state.isLoading && <Spinner /> }
             Entrar
         </button>
