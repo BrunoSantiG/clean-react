@@ -34,10 +34,15 @@ const Login: React.FC<Props> = ({ validation }: Props) => {
     }))
   }, [state.password])
 
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
+    event.preventDefault()
+    setState({ ...state, isLoading: true })
+  }
+
   return (
     <div className={Styles.container}>
       <LoginHeader/>
-      <form className={Styles.form} data-testid="form">
+      <form className={Styles.form} data-testid="form" onSubmit={handleSubmit}>
         <h2>Login</h2>
         {error.message && <span className={Styles.error} data-testid="error-msg">{error.message}</span>}
         <Input type="email" name="email" state={{ state, setState }} placeholder="E-mail" error={error.email}/>
