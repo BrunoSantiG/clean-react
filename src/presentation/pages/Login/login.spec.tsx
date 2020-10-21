@@ -120,4 +120,15 @@ describe('Login component', () => {
     const button = sut.getByRole('button') as HTMLButtonElement
     expect(button.disabled).toBeFalsy()
   })
+
+  test('Should show spinner on submit', () => {
+    const { sut } = makeSut()
+    const passwordInput = sut.getByTestId('password')
+    fireEvent.input(passwordInput, { target: { value: faker.internet.password() } })
+    const emailInput = sut.getByTestId('email')
+    fireEvent.input(emailInput, { target: { value: faker.internet.email() } })
+    const button = sut.getByRole('button')
+    fireEvent.click(button)
+    expect(sut.queryByTestId('spinner')).toBeTruthy()
+  })
 })
