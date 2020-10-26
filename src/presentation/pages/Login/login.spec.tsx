@@ -1,6 +1,7 @@
 import React from 'react'
 import { render, RenderResult, fireEvent, cleanup, waitFor } from '@testing-library/react'
 import faker from 'faker'
+import 'jest-localstorage-mock'
 
 import Login from '.'
 import { ValidationSpy, AuthenticationSpy } from '@/presentation/test'
@@ -52,6 +53,9 @@ const simulateValidSubmit = (sut: RenderResult, email = faker.internet.email(), 
 
 describe('Login component', () => {
   afterEach(cleanup)
+  beforeEach(() => {
+    localStorage.clear()
+  })
   test('Should not render error message on mount', () => {
     const { sut } = makeSut()
     expect(sut.queryByTestId('error-msg')).toBeFalsy()
@@ -169,5 +173,12 @@ describe('Login component', () => {
     const errorMsg = sut.getByTestId('error-msg')
     expect(errorMsg.textContent).toBe(error.message)
     expect(sut.queryByTestId('spinner')).toBeFalsy()
+  })
+
+  test('Should add accessToken to localstorage on success', async () => {
+    const { sut, authenticationSpy } = makeSut()
+    simulateValidSubmit(sut)
+    await waitFor(() => sut.getByTestId('form'))
+    expect(localStorage.setItem).toHaveBeenCalledWith('accessToken', authenticationSpy.account.accessToken)
   })
 })
