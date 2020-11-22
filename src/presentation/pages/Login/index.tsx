@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Spinner, LoginHeader, Footer } from '@/presentation/components'
 import Styles from './styles.scss'
 import Input from '@/presentation/components/Input'
-import { Validation } from '@/presentation/protocols/Validation'
+import { Validation } from '@/presentation/protocols/validation'
 import { Authentication } from '@/domain/useCases'
 
 type Props = {

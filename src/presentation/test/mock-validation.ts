@@ -1,4 +1,4 @@
-import { Validation } from '@/presentation/protocols/Validation'
+import { Validation } from '@/presentation/protocols/validation'
 
 export class ValidationSpy implements Validation {
   errorMessage: string
