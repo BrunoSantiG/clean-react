@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import { Spinner, LoginHeader, Footer } from '@/presentation/components'
-import Styles from './styles.scss'
 import Input from '@/presentation/components/Input'
 import { Validation } from '@/presentation/protocols/validation'
 import { Authentication } from '@/domain/useCases'
+
+import Styles from './styles.scss'
 
 type Props = {
   validation: Validation
@@ -66,7 +68,7 @@ const Login: React.FC<Props> = ({ validation, authentication }: Props) => {
           {state.isLoading && <Spinner /> }
             Entrar
         </button>
-        <span className={Styles.link}>criar conta</span>
+        <Link to="/signup" data-testid="signup" className={Styles.link}>criar conta</Link>
       </form>
       <Footer/>
     </div>
