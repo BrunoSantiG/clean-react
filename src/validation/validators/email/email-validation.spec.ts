@@ -12,4 +12,11 @@ describe('RequiredFieldValidation', () => {
 
     expect(error).toEqual(new InvalidFieldError())
   })
+
+  test('Should return null if field email is valid', () => {
+    const sut = makeSut()
+    const error = sut.validate(faker.internet.email())
+
+    expect(error).toBeNull()
+  })
 })
